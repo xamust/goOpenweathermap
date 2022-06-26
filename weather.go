@@ -63,6 +63,7 @@ func (weather *WeatherAPI) GetWeather(cityID string) (ResultMsg, error) {
 	}
 	return response, err
 }
+
 func (weather *WeatherAPI) MakeRequest(cityID string, params url.Values) (ResultMsg, error) {
 	method := fmt.Sprintf(weather.apiEndpoint, cityID, weather.Token)
 	req, err := http.NewRequest("POST", method, strings.NewReader(params.Encode()))
